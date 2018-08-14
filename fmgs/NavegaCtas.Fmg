@@ -1,0 +1,86 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2008 Roberto Lopez <harbourminigui@gmail.com>
+* http://harbourminigui.googlepages.com
+#include "rev.ch"
+
+DEFINE WINDOW TEMPLATE AT 87 , 30 WIDTH 740 HEIGHT 453 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Saldos Bancarios v.0.5 :: Actualiza Cuentas" ICON NIL MODAL NOSYSMENU CURSOR NIL ON INIT Activa2() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TOOLBAR ToolBar_1 BUTTONSIZE 90,32 FONT "Arial" SIZE 9 FLAT RIGHTTEXT
+        BUTTON Cerrar CAPTION "Cerrar" PICTURE "EXSALIR" ACTION NavegaCtas.release AUTOSIZE
+        BUTTON Nuevo CAPTION "Nuevo" PICTURE "EXNUEVO" ACTION ( lNewCta := .T. , NewCtas() ) AUTOSIZE
+        BUTTON Modificar CAPTION "Modificar" PICTURE "EXMODIF" ACTION IngresaCtas() AUTOSIZE
+        BUTTON Eliminar CAPTION "Eliminar" PICTURE "EXDEL" ACTION ( DelCtas() , Activa2() ) AUTOSIZE
+        BUTTON Buscar CAPTION "Buscar" PICTURE "EXBUSCA" ACTION BuscandoCtas() AUTOSIZE
+        BUTTON Imprimir CAPTION "Imprimir" PICTURE "EXPRINT" ACTION ImprimeCtas() AUTOSIZE
+    END TOOLBAR
+
+    DEFINE STATUSBAR FONT "Arial" SIZE 9
+        STATUSITEM "Actualiza Cuentas"
+        STATUSITEM (PROGRAM+VERSION) WIDTH 300
+    END STATUSBAR
+
+    DEFINE BROWSE Browse_1
+        ROW    65
+        COL    20
+        WIDTH  690
+        HEIGHT 310
+        VALUE 0
+        WIDTHS {100,570}
+        HEADERS {'Código','Nombre'}
+        WORKAREA cuentas
+        FIELDS {'imputacion','nombre'}
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE MuestraRecCta()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK IngresaCtas()
+        ALLOWEDIT .F.
+        ALLOWAPPEND .F.
+        ONHEADCLICK { { || CtasHead(1) } , { || CtasHead(2) } }
+        ALLOWDELETE .F.
+        HELPID Nil
+        VALID Nil
+        VALIDMESSAGES Nil
+        LOCK .F.
+        VSCROLLBAR .T.
+        DYNAMICBACKCOLOR Nil
+        DYNAMICFORECOLOR Nil
+        INPUTMASK Nil
+        FORMAT Nil
+        WHEN Nil
+        BACKCOLOR {255,128,0}
+        FONTCOLOR NIL
+        IMAGE Nil
+        JUSTIFY Nil
+        NOLINES .F.
+        READONLYFIELDS Nil
+    END BROWSE
+
+    DEFINE FRAME Frame_1
+        ROW    50
+        COL    10
+        WIDTH  710
+        HEIGHT 340
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    On Key ESCAPE Action ThisWindow.Release
+
+END WINDOW
+
+

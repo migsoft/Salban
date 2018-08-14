@@ -1,0 +1,70 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2005 Roberto Lopez <roblez@ciudad.com.ar>
+
+DEFINE WINDOW TEMPLATE AT 127 , 146 WIDTH 540 HEIGHT 350 TITLE "Resumen de Saldos" ICON NIL MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT Nil ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TOOLBAR ToolBar_1 BUTTONSIZE 90,32 FONT "Arial" SIZE 9 FLAT RIGHTTEXT
+        BUTTON Cerrar CAPTION "Cerrar" PICTURE "EXSALIR" ACTION Resumen.release AUTOSIZE
+        BUTTON Imprimir CAPTION "Imprimir" PICTURE "EXPRINT" ACTION PrintRes()
+    END TOOLBAR
+
+    DEFINE BROWSE Browse_1
+        ROW    60
+        COL    20
+        WIDTH  490
+        HEIGHT 240
+        VALUE 0
+        WIDTHS {60,60,200,150}
+        HEADERS {'BANCO','AÑO','NOMBRE','SALDO' }
+        WORKAREA Resal
+        FIELDS {'BANCO','ERA','NOMBRE','SALDO'}
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK Nil
+        ALLOWEDIT .F.
+        ALLOWAPPEND .F.
+        ONHEADCLICK Nil
+        ALLOWDELETE .F.
+        HELPID Nil
+        VALID Nil
+        VALIDMESSAGES Nil
+        LOCK .F.
+        VSCROLLBAR .T.
+        INPUTMASK Nil
+        FORMAT Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        IMAGE Nil
+        JUSTIFY { BROWSE_JTFY_CENTER, BROWSE_JTFY_CENTER, BROWSE_JTFY_LEFT, BROWSE_JTFY_RIGHT }
+        NOLINES .F.
+        READONLYFIELDS Nil
+    END BROWSE
+
+    DEFINE FRAME Frame_1
+        ROW    50
+        COL    10
+        WIDTH  510
+        HEIGHT 260
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+END WINDOW
+
+

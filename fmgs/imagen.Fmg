@@ -1,0 +1,128 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2006 Roberto Lopez <roblez@ciudad.com.ar>
+
+DEFINE WINDOW TEMPLATE AT 202 , 349 WIDTH 148 HEIGHT 215 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Gráfico de Saldos" ICON NIL CHILD NOAUTORELEASE NOMAXIMIZE NOMINIMIZE NOSIZE NOSYSMENU CURSOR NIL ON INIT MigSeries() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON MAXIMIZE Nil ON MINIMIZE Nil ON PAINT Nil BACKCOLOR {255,255,255} NOTIFYICON NIL NOTIFYTOOLTIP NIL ON NOTIFYCLICK Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE BUTTON Button_3
+        ROW    140
+        COL    20
+        WIDTH  100
+        HEIGHT 20
+        CAPTION "Salir"
+        ACTION Imagen.Release
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+    DEFINE BUTTON Button_1
+        ROW    20
+        COL    20
+        WIDTH  100
+        HEIGHT 20
+        CAPTION "Pie"
+        ACTION MuestraPie(1)
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+    DEFINE BUTTON Button_2
+        ROW    50
+        COL    20
+        WIDTH  100
+        HEIGHT 20
+        CAPTION "Barras"
+        ACTION MuestraPie(2)
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+    DEFINE BUTTON Button_4
+        ROW    80
+        COL    20
+        WIDTH  100
+        HEIGHT 20
+        CAPTION "Líneas"
+        ACTION MuestraPie(3)
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+    DEFINE BUTTON Button_5
+        ROW    110
+        COL    20
+        WIDTH  100
+        HEIGHT 20
+        CAPTION "Puntos"
+        ACTION MuestraPie(4)
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+END WINDOW
+
+

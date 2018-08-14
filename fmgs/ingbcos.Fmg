@@ -1,0 +1,322 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2008 Roberto Lopez <harbourminigui@gmail.com>
+* http://harbourminigui.googlepages.com
+#include "rev.ch"
+
+DEFINE WINDOW TEMPLATE AT 174 , 201 WIDTH 508 HEIGHT 309 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Edición de Banco/Caja" ICON "XPCALC" MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT OpcionBcos() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TOOLBAR ToolBar_1 BUTTONSIZE 90,32 FONT "Arial" SIZE 9 FLAT RIGHTTEXT
+        BUTTON Cerrar CAPTION "Cerrar" PICTURE "EXSALIR" ACTION ( ingbcos.release ) AUTOSIZE
+        BUTTON Aceptar CAPTION "Aceptar" PICTURE "EXOK" ACTION IngBcosAceptar() AUTOSIZE
+    END TOOLBAR
+
+    DEFINE STATUSBAR FONT "Arial" SIZE 9
+        STATUSITEM "Gestion de Bancos"
+        STATUSITEM (PROGRAM+VERSION) WIDTH 200
+    END STATUSBAR
+
+    DEFINE FRAME Frame_1
+        ROW    50
+        COL    10
+        WIDTH  480
+        HEIGHT 200
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL Label_1
+        ROW    70
+        COL    20
+        WIDTH  80
+        HEIGHT 20
+        VALUE "Nro. de Banco"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_1
+        ROW    70
+        COL    120
+        WIDTH  70
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Ingrese un Número entre 0 y 9999"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER VeriBcos(this.value)
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        MAXLENGTH 4
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "9999"
+        FORMAT Nil
+        NUMERIC .T.
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_2
+        ROW    150
+        COL    20
+        WIDTH  130
+        HEIGHT 20
+        VALUE "Nombre del Banco"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_5
+        ROW    100
+        COL    120
+        WIDTH  120
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Nombre del Archivo BMP, Ejemplo: banco.bmp"
+        ONCHANGE MuestraFoto()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL Label_3
+        ROW    180
+        COL    20
+        WIDTH  170
+        HEIGHT 20
+        VALUE "Nro. de Cta. Bancaria"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_2
+        ROW    150
+        COL    198
+        WIDTH  280
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "No Ingrese La Palabra BANCO, solo el Nombre"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        UPPERCASE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE TEXTBOX Text_3
+        ROW    180
+        COL    198
+        WIDTH  280
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL Label_4
+        ROW    210
+        COL    20
+        WIDTH  170
+        HEIGHT 20
+        VALUE "Saldo Inicial"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_4
+        ROW    210
+        COL    198
+        WIDTH  140
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "9999,999,999.99"
+        FORMAT "E"
+        NUMERIC .T.
+        VALUE Nil
+    END TEXTBOX
+    
+    DEFINE FRAME Frame_2
+        ROW    60
+        COL    260
+        WIDTH  219
+        HEIGHT 70
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE IMAGE Image_1
+        ROW    70
+        COL    265
+        WIDTH  209
+        HEIGHT 57
+        PICTURE "BANCOINI"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION CapturaBmp()
+    END IMAGE
+
+    DEFINE LABEL Label_5
+        ROW    100
+        COL    20
+        WIDTH  90
+        HEIGHT 20
+        VALUE "Logo del Banco"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    On Key ESCAPE Action ThisWindow.Release
+
+END WINDOW
+
+

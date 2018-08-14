@@ -1,0 +1,140 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2005 Roberto Lopez <roblez@ciudad.com.ar>
+#include "rev.ch"
+
+DEFINE WINDOW TEMPLATE AT 182 , 291 WIDTH 448 HEIGHT 227 TITLE "Ingreso de Cuentas" ICON "migsoft.ico" MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT OpcionCtas() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TOOLBAR ToolBar_1 BUTTONSIZE 90,32 FONT "Arial" SIZE 9 FLAT RIGHTTEXT
+        BUTTON Cerrar CAPTION "Cerrar" PICTURE "EXSALIR" ACTION ( ingctas.release ) AUTOSIZE
+        BUTTON Aceptar CAPTION "Aceptar" PICTURE "EXOK" ACTION IngctasAceptar() AUTOSIZE
+    END TOOLBAR
+
+    DEFINE STATUSBAR FONT "Arial" SIZE 9
+        STATUSITEM "Gestión de Cuentas"
+        STATUSITEM PROGRAM+VERSION WIDTH 200
+    END STATUSBAR
+
+    DEFINE LABEL Label_11
+        ROW    80
+        COL    20
+        WIDTH  70
+        HEIGHT 20
+        VALUE "Código"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE LABEL Label_12
+        ROW    120
+        COL    20
+        WIDTH  70
+        HEIGHT 20
+        VALUE "Descripción"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_9
+        ROW    80
+        COL    110
+        WIDTH  100
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Código para Identificar un Gasto, Ingreso, etc."
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER VeriCtas(this.value)
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        NUMERIC .T. 
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE TEXTBOX Text_10
+        ROW    120
+        COL    110
+        WIDTH  300
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Nombre de La cuenta, Ejemplo [ Gasto Teléfono ]"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        UPPERCASE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE FRAME Frame_3
+        ROW    50
+        COL    10
+        WIDTH  420
+        HEIGHT 120
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+    
+    On Key ESCAPE Action ThisWindow.Release
+
+END WINDOW
+
+

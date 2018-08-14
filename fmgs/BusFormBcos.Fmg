@@ -1,0 +1,174 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2005 Roberto Lopez <roblez@ciudad.com.ar>
+
+DEFINE WINDOW TEMPLATE AT 52 , 378 WIDTH 340 HEIGHT 187 TITLE "Busqueda por ..." ICON NIL MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT Nil ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TAB Tab_1 AT 20 , 20 WIDTH 290 HEIGHT 90 VALUE 1 FONT "Arial" SIZE 9 TOOLTIP "" ON CHANGE Nil
+
+        PAGE "Banco"
+
+            DEFINE TEXTBOX Text_1
+                ROW    40
+                COL    90
+                WIDTH  120
+                HEIGHT 24
+                FONTNAME "Arial"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .T.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                NUMERIC .T.
+                VALUE Nil
+            END TEXTBOX
+
+        END PAGE
+
+        PAGE "Nombre"
+
+            DEFINE TEXTBOX Text_3
+                ROW    40
+                COL    20
+                WIDTH  250
+                HEIGHT 24
+                FONTNAME "Arial"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+        END PAGE
+
+        PAGE "Cuenta"
+
+            DEFINE TEXTBOX Text_2
+                ROW    40
+                COL    20
+                WIDTH  250
+                HEIGHT 24
+                FONTNAME "Arial"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+        END PAGE
+
+    END TAB
+
+    DEFINE FRAME Frame_1
+        ROW    10
+        COL    10
+        WIDTH  320
+        HEIGHT 110
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE BUTTON Button_1
+        ROW    125
+        COL    60
+        WIDTH  100
+        HEIGHT 28
+        CAPTION "Aceptar"
+        ACTION (BusBcos(),BusFormBcos.release)
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+    DEFINE BUTTON Button_2
+        ROW    125
+        COL    170
+        WIDTH  100
+        HEIGHT 28
+        CAPTION "Cancelar"
+        ACTION BusFormBcos.release
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+END WINDOW
+
+

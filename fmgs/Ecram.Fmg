@@ -1,0 +1,33 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2008 Roberto Lopez <harbourminigui@gmail.com>
+* http://harbourminigui.googlepages.com
+
+DEFINE WINDOW TEMPLATE AT 129 , 242 WIDTH 536 HEIGHT 527 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE (PROGRAM+VERSION) ICON "XPCalc" MODAL CURSOR NIL ON INIT InitGraf(nTipo) ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR {221,221,238} ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE BUTTON Button_1
+        ROW    460
+        COL    430
+        WIDTH  60
+        HEIGHT 20
+        ACTION Ecram.release
+        CAPTION "Salir"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE Nil
+    END BUTTON
+
+END WINDOW
+
+

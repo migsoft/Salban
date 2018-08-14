@@ -1,0 +1,435 @@
+* Harbour MiniGUI IDE Two-Way Form Designer Generated Code
+* (c)2004-2005 Roberto Lopez <roblez@ciudad.com.ar>
+#include "rev.ch"
+
+DEFINE WINDOW TEMPLATE AT 126 , 219 WIDTH 547 HEIGHT 297 TITLE "Movimiento/Operaciones de Banco/Caja" ICON "migsoft.ico" MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT OpcionMovi() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TOOLBAR ToolBar_1 BUTTONSIZE 90,32 FONT "Arial" SIZE 9 FLAT RIGHTTEXT
+        BUTTON Cerrar CAPTION "Cerrar" PICTURE "EXSALIR" ACTION ingmovi.release AUTOSIZE
+        BUTTON Aceptar CAPTION "Aceptar" PICTURE "EXOK" ACTION ( AceptarMovi(), Activa3() ) AUTOSIZE
+        BUTTON Varios CAPTION "Varios" PICTURE "VARIOS" ACTION ( DesactivaAceptar(), VariosMovi(), Activa3() ) AUTOSIZE
+        BUTTON Imprimir CAPTION "Imprimir" PICTURE "EXPRINT" ACTION PrintVoucher()
+    END TOOLBAR
+
+    DEFINE STATUSBAR FONT "Arial" SIZE 9
+        STATUSITEM "Transacciones"
+        STATUSITEM PROGRAM+VERSION WIDTH 300
+    END STATUSBAR
+
+    DEFINE FRAME Frame_2
+        ROW    50
+        COL    10
+        WIDTH  520
+        HEIGHT 190
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE TEXTBOX Text_4
+        ROW    80
+        COL    150
+        WIDTH  120
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Solo Ingresar Nro. de Cheque"
+        ONCHANGE esCheque(this.value)
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        NUMERIC .T. 
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE DATEPICKER DatePicker_1
+        ROW    80
+        COL    300
+        WIDTH  87
+        HEIGHT 24
+        VALUE CTOD(" / / ")
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .F.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE DATEPICKER DatePicker_2
+        ROW    80
+        COL    410
+        WIDTH  110
+        HEIGHT 24
+        VALUE CTOD("00/00/00")
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .T.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE TEXTBOX Text_5
+        ROW    130
+        COL    150
+        WIDTH  365
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Aquí indicar si es Factura, Recibo, Boleta, Liquidación, Rendición, etc."
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        UPPERCASE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE TEXTBOX Text_8
+        ROW    190
+        COL    30
+        WIDTH  120
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Asigna Código de Ingreso o Gasto"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER VeriMovi(this.value)
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        NUMERIC .T. 
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_5
+        ROW    60
+        COL    420
+        WIDTH  85
+        HEIGHT 20
+        VALUE "Fecha Cobro"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE LABEL Label_4
+        ROW    60
+        COL    300
+        WIDTH  85
+        HEIGHT 20
+        VALUE "Fecha Emisión"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE LABEL Label_6
+        ROW    80
+        COL    30
+        WIDTH  90
+        HEIGHT 20
+        VALUE "Nro. de Cheque"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE LABEL Label_7
+        ROW    130
+        COL    30
+        WIDTH  90
+        HEIGHT 20
+        VALUE "Detalle/Glosa"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE LABEL Label_8
+        ROW    170
+        COL    200
+        WIDTH  150
+        HEIGHT 24
+        VALUE "Debe (Ingresos/Depósitos)"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_6
+        ROW    190
+        COL    200
+        WIDTH  150
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Ingresos, Abonos, Depósitos..."
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "9999,999,999.99"
+        FORMAT "E"
+        NUMERIC .T. 
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_9
+        ROW    170
+        COL    360
+        WIDTH  150
+        HEIGHT 24
+        VALUE "Haber (Gastos/Cheques)"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX Text_7
+        ROW    190
+        COL    360
+        WIDTH  150
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Gastos, Egresos, Giros, Cargos, Cheques"
+        ONCHANGE esHaber(this.value)
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "9999,999,999.99"
+        FORMAT "E"
+        NUMERIC .T. 
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_10
+        ROW    170
+        COL    30
+        WIDTH  110
+        HEIGHT 20
+        VALUE "Codifica Operación"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE BUTTON Button_1
+        ROW    190
+        COL    156
+        WIDTH  24
+        HEIGHT 24
+        CAPTION ""
+        ACTION VeriMoviGraph()
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Aquí encontrará las cuentas que existen"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        PICTURE "EXADIC"
+    END BUTTON
+
+    DEFINE LABEL Label_1
+        ROW    170
+        COL    162
+        WIDTH  10
+        HEIGHT 15
+        VALUE "?"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    On Key ESCAPE Action ThisWindow.Release
+
+END WINDOW
+
+

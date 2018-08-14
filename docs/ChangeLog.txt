@@ -1,0 +1,51 @@
+/*
+ * $Id: ChangeLog.txt,v 1.3 2012/06/06 12:01:55 migsoft Exp $
+ */
+/* Use this format for the entry headers:
+   YYYY-MM-DD HH:MM UTC[-|+]hhmm Your Full Name <your_email@address>
+   For example:
+   2002-12-01 23:12 UTC+0100 Foo Bar <foo.bar@foobar.org>
+*/
+
+2012-06-06 12:01 UTC-0400 MigSoft <fugaz_cl at yahoo.es>
+  * Rev.prg
+  * Resumen.prg
+    * Change path of data bases.
+
+2009-10-02 23:17 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * ?.prg
+    * Severe prg´s change.
+
+2009-03-08 18:07 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * grafico.prg
+    modified code for graphics reports with errors
+  * ecram.fmg
+    Change
+
+2007-11-02 18:07 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * rev.prg
+    modified code for new harbour gtgui
+  * MigBld.bat
+    Script for build application
+
+2007-10-10 15:32 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * ?.prg
+    * project ready for compiled
+
+2007-10-10 08:57 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * ?.bmp
+    ! new logo of saldos bancarios and Bank's
+
+2007-10-09 21:07 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * ?.prg
+    ! Severe prg's for saldos bancarios.
+
+2007-06-16 13:41 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * ?.fmg
+    ! Severe form´s for saldos bancarios.
+
+
+2007-06-15 00:49 UTC-0500 MigSoft <fugaz_cl at yahoo.es>
+  * inicio.fmg
+    ! First form for saldos bancarios.
+
