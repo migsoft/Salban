@@ -1,5 +1,5 @@
 [PROJECT]
-PROJECTFOLDER=F:\MyApp\Salvado\FHD\Devel\Kinston32\work\last\salban
+PROJECTFOLDER=F:\Documents\GitHub\Salban
 EXEOUTPUTNAME=salba
 EXECOMPRESS=F
 EXE64BITS=T
@@ -35,7 +35,7 @@ WITHDEBUG=1.00
 INCREMENTAL=1.00
 [NFILES]
 TOTSOUFILES=7.00
-TOTLIBFILES=1.00
+TOTLIBFILES=0.00
 TOTFMGFILES=22.00
 TOTRCFILES=1.00
 [SOURCE]
@@ -46,8 +46,6 @@ SCRFILE4=PathProject\prgs\grafico.prg
 SCRFILE5=PathProject\prgs\movimiento.prg
 SCRFILE6=PathProject\prgs\respaldo.prg
 SCRFILE7=PathProject\prgs\resumen.prg
-[LIBRARY]
-LIBFILE1=F:\Devel\hb3464\lib\win\mingw64\libhbpcre2.a
 [INCLUDE]
 FMGFILE1=PathProject\fmgs\Acerca.Fmg
 FMGFILE2=PathProject\fmgs\BusFormBcos.Fmg
