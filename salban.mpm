@@ -1,5 +1,5 @@
 [PROJECT]
-PROJECTFOLDER=C:\MyApp\Salvado\FHD\Devel\Kinston32\work\last\salban
+PROJECTFOLDER=F:\MyApp\Salvado\FHD\Devel\Kinston32\work\last\salban
 EXEOUTPUTNAME=salba
 EXECOMPRESS=F
 EXE64BITS=T
@@ -47,7 +47,7 @@ SCRFILE5=PathProject\prgs\movimiento.prg
 SCRFILE6=PathProject\prgs\respaldo.prg
 SCRFILE7=PathProject\prgs\resumen.prg
 [LIBRARY]
-LIBFILE1=C:\Devel\hb3464\lib\win\mingw64\libhbpcre2.a
+LIBFILE1=F:\Devel\hb3464\lib\win\mingw64\libhbpcre2.a
 [INCLUDE]
 FMGFILE1=PathProject\fmgs\Acerca.Fmg
 FMGFILE2=PathProject\fmgs\BusFormBcos.Fmg
