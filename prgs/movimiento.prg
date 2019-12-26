@@ -407,7 +407,7 @@ Procedure Imprimir()
 Return
     /*49-----------------------------------------------------------------------------*/
 Function MigAyuda
-    cFilHelp := CurDir()+"SalBan.txt"
+    cFilHelp := "README.md"
     cArquivo := Iif(File(cFilHelp),MemoRead(cFilHelp),"No exite Archivo de Ayuda")
     Load Window Form_3
     Center Window Form_3
