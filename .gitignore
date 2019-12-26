@@ -10,8 +10,13 @@ _temp.txt
 *.gcc
 *.bc
 *.log
+*.mpm
+/dbfs
 /vOBJh
 /vOBJx
+/bOBJx
+/pOBJx
+/mOBJx
 /bOBJh
 /mOBJh
 /mOBJh64
@@ -63,3 +68,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.cdx
+*.mpm
+dbfs/cuentas.cdx
+dbfs/m_bancos.cdx
+dbfs/m_bancos.dbf
+dbfs/mae_bcos.cdx
+dbfs/resal.cdx
+*.map
