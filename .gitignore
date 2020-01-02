@@ -78,3 +78,4 @@ dbfs/resal.cdx
 *.map
 *.dbf
 dbfs/m_bancos.dbf
+*.mpm
