@@ -141,3 +141,4 @@ o destino de dinero.
 
 Esta es una visión general del sistema.
 
+Nota: Para compilar se necesita incluir las librerías hbmzip y minizip
