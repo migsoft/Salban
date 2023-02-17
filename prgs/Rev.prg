@@ -115,6 +115,11 @@ Return
 Procedure OpenTables()
     ImageCenter()
     DBCloseAll()
+
+    If !HB_DirExists( SaldoFolder + hb_osPathSeparator() )
+        DirMake( SaldoFolder + hb_osPathSeparator() )
+    Endif
+
     if file(SaldoFolder+'\mae_bcos.dbf')
         use &(SaldoFolder+'\mae_bcos') shared
         if !FCOUNT() = 5
